@@ -6,18 +6,24 @@
 #5. repeat for the whole collection until everything is sorted
 #6. rejoice in the .sort method from this day forward.
 
-numbers = [4,6,8,3,9,5,1,7,2]
+numbers = ["d", "b", "a", "c"]
+a = 0
+count = 0
 
-numbers.each_with_index do |number, index|
-
+while count < numbers.length
+    numbers.each_with_index do |number, index|
         if index == numbers.length - 1
-            puts "squee"
+            next
         elsif number > numbers[index+1]
-            puts "boo"
+            a = number
+            numbers.delete(a)
+            numbers.insert(index+1, a)
+            p numbers
         else
             puts "yay"
         end
-
+    end
+count += 1
 end
 
 puts "#{numbers}"

@@ -7,23 +7,34 @@
 #6. rejoice in the .sort method from this day forward.
 
 numbers = ["d", "b", "a", "c"]
-a = 0
-count = 0
 
-while count < numbers.length
-    numbers.each_with_index do |number, index|
-        if index == numbers.length - 1
-            next
-        elsif number > numbers[index+1]
-            a = number
-            numbers.delete(a)
-            numbers.insert(index+1, a)
-            p numbers
-        else
-            puts "yay"
-        end
+class BubbleSort
+    def initialize (to_be_sorted)
+        @to_be_sorted = to_be_sorted
     end
-count += 1
+
+    def sort
+        count = 0
+        a = 0
+        while count < to_be_sorted.length
+            to_be_sorted.each_with_index do |number, index|
+                if index == to_be_sorted.length - 1
+                    next
+                elsif number > to_be_sorted[index+1]
+                    a = number
+                    to_be_sorted.delete(a)
+                    to_be_sorted.insert(index+1, a)
+                    p to_be_sorted
+                else
+                    puts "yay"
+                end
+            end
+        count += 1
+        end
+        puts "#{to_be_sorted}"
+    end
 end
 
-puts "#{numbers}"
+sorter = BubbleSort.new
+sorter.sort(numbers)
+puts "Now I shall rejoice in .sort for all time."
